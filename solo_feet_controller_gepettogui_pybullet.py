@@ -104,7 +104,7 @@ def callback_torques():
     
     # compute/update all joints and frames
     pin.forwardKinematics(solo.model, solo.data, q)
-    #pin.updateFramePlacements(solo.model, solo.data)
+    pin.updateFramePlacements(solo.model, solo.data)
     
     # Getting the current height (on axis z) of each foot
     hFL = solo.data.oMf[ID_FL].translation[2]
