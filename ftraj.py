@@ -7,22 +7,7 @@ T = 0.4	#period of 2s
 dx = 0.02
 dz = 0.05
 
-def ftraj(t, x0, z0):	#arguments : time, initial position x and z
-	global T, d
-	x = []
-	z = []
-	for dt in t:
-		if dt >= T:
-			dt %= T
-		x.append(x0-dx*cos(2*np.pi*dt/T))
-		if dt <= T/2:
-			z.append(z0+dz*sin(2*np.pi*dt/T))
-		else:
-			z.append(0)
-	return np.matrix([x,z])
-	
-
-def ftraj2(DeltaT, x0, z0):	#arguments : time, initial position x and z
+def ftraj(DeltaT, x0, z0):	#arguments : time, initial position x and z
 		global T, dx, dz
 		x = []
 		z = []
@@ -35,10 +20,11 @@ def ftraj2(DeltaT, x0, z0):	#arguments : time, initial position x and z
 			else:
 				z.append(0)
 		return np.matrix([x,z])
+
 		
 		
 import matplotlib.pylab as plt
-
+"""
 DeltaT = np.linspace(0,2*T,300)
 x0 = -0.19
 z0 = 0
@@ -51,5 +37,5 @@ plt.grid()
 plt.title('Parametric curve of the trajectory')
 plt.show()
 
-
+"""
 embed()
