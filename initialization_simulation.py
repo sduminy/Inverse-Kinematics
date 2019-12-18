@@ -5,7 +5,6 @@ import pybullet_data
 import pinocchio as pin # Pinocchio library
 import numpy as np # Numpy library
 import robots_loader # Functions to load the SOLO quadruped
-from pinocchio.utils import * # Utilitary functions from Pinocchio
 from pinocchio.robot_wrapper import RobotWrapper # Robot Wrapper to load an URDF in Pinocchio
 
 def configure_simulation(dt,enableGUI):
