@@ -82,14 +82,42 @@ def ftraj(DeltaT, x0, z0):
 			
 	return x,z
 
+x0 = xF0
+P0  = [    x0    ,   z0    ]
+P1  = [x0-0.125*L,   z0    ]
+P2  = [ x0-0.5*L , z0+0.8*h]
+P3  = [ x0-0.5*L , z0+0.8*h]
+P4  = [ x0-0.5*L , z0+0.8*h]
+P5  = [ x0+0.5*L , z0+0.8*h]
+P6  = [ x0+0.5*L , z0+0.8*h]
+P7  = [ x0+0.5*L ,  z0+h   ]
+P8  = [ x0+1.5*L ,  z0+h   ]
+P9  = [ x0+1.5*L ,  z0+h   ]
+P10 = [x0+1.125*L,   z0    ]
+P11 = [  x0 + L  ,   z0    ]
+
 DeltaT = np.linspace(0., T, N_SIMULATION)
 
 X,Z = ftraj(DeltaT, xF0, z0)
 
 plt.figure(2)
-plt.plot(X,Z)
+plt.plot(X[:int(N_SIMULATION/2)],Z[:int(N_SIMULATION/2)], 'b', label="Swing phase")
+plt.plot(X[int(N_SIMULATION/2):],Z[int(N_SIMULATION/2):], 'c', label="Stance phase")
+plt.plot(P0[0], P0[1], 'xk', label="control points")
+plt.plot(P1[0], P1[1], '+b')
+plt.plot(P2[0], P2[1], 'xg')
+plt.plot(P3[0], P3[1], '+c')
+plt.plot(P4[0], P4[1], marker='o', markerfacecolor = 'none', markeredgecolor ='m')
+plt.plot(P5[0], P5[1], '+y')
+plt.plot(P6[0], P6[1], 'xk')
+plt.plot(P7[0], P7[1], '+b')
+plt.plot(P8[0], P8[1], 'xg')
+plt.plot(P9[0], P9[1], '+c')
+plt.plot(P10[0], P10[1], 'xm')
+plt.plot(P11[0], P11[1], '+y')
 plt.xlabel('x (m)')
 plt.ylabel('z (m)')
+plt.legend()
 plt.title("Foot trajectory using Bezier curve")
 plt.show()
 
@@ -106,4 +134,4 @@ plt.grid()
 plt.title('Parametric curve of the trajectory')
 plt.show()
 """
-embed()
+
